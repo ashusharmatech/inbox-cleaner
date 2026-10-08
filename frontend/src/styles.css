@@ -1,0 +1,139 @@
+:root {
+  --fog: #eef1f4;
+  --paper: #ffffff;
+  --ink: #14202b;
+  --ink-soft: #5b6b7a;
+  --line: #d6dde4;
+  --postmark: #2b4bf2;
+  --postmark-dark: #1f38c4;
+  --stamp: #d8372b;
+  --ok: #1d7a4d;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fog);
+  color: var(--ink);
+  font: 400 16px/1.5 var(--body);
+}
+h1, h2, .wordmark { font-family: var(--display); letter-spacing: -0.02em; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--postmark); outline-offset: 2px; }
+
+.wordmark { margin: 0; font-weight: 800; font-size: 1.1rem; }
+
+/* ---------- buttons */
+.btn {
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: none;
+  white-space: nowrap;
+  transition: background-color 0.12s, border-color 0.12s;
+}
+.btn:disabled { opacity: 0.55; cursor: default; }
+.btn.primary { background: var(--postmark); color: #fff; }
+.btn.primary:hover:not(:disabled) { background: var(--postmark-dark); }
+.btn.outline { border-color: var(--ink); }
+.btn.outline:hover:not(:disabled) { background: var(--ink); color: #fff; }
+.btn.danger { background: var(--stamp); color: #fff; }
+.btn.quiet { color: var(--ink-soft); }
+.btn.quiet:hover:not(:disabled) { color: var(--ink); background: rgba(20, 32, 43, 0.06); }
+.btn.big { display: inline-block; padding: 0.9rem 1.6rem; font-size: 1.05rem; text-decoration: none; border-radius: 10px; }
+
+.notice { margin: 1rem 0; padding: 0.75rem 1rem; border-radius: 8px; background: var(--paper); border: 1.5px solid var(--line); }
+.notice.error { border-color: var(--stamp); }
+
+/* ---------- landing */
+.landing {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  min-height: 100vh;
+}
+.landing-copy h1 { font-size: clamp(2.4rem, 5.2vw, 4rem); line-height: 1.02; margin: 1.5rem 0 1rem; font-weight: 800; }
+.lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 34rem; margin: 0 0 1.75rem; }
+.promises { list-style: none; padding: 0; margin: 1.75rem 0 0; color: var(--ink-soft); font-size: 0.95rem; display: grid; gap: 0.35rem; }
+
+.landing-sample { background: var(--paper); border: 1.5px solid var(--ink); border-radius: 14px; padding: 0.5rem 1.25rem; box-shadow: 8px 8px 0 var(--ink); }
+.sample-row { padding: 1rem 0; border-bottom: 1.5px solid var(--line); display: grid; gap: 0.5rem; }
+.sample-row:last-child { border-bottom: 0; }
+.sample-row .num { font-size: 0.85rem; color: var(--ink-soft); }
+
+.who { min-width: 0; display: grid; }
+.who strong { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.who span { color: var(--ink-soft); font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.bar { height: 10px; border-radius: 5px; background: var(--fog); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--postmark); border-radius: 5px; min-width: 4px; }
+
+/* ---------- dashboard */
+.dash { max-width: 1040px; margin: 0 auto; padding: 1.25rem 1.5rem 4rem; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 1.5px solid var(--line); flex-wrap: wrap; }
+.topbar-right { display: flex; align-items: center; gap: 0.25rem; flex-wrap: wrap; }
+.acct { color: var(--ink-soft); font-size: 0.9rem; margin-right: 0.5rem; }
+
+.summary { margin: 2.25rem 0 1.5rem; }
+.summary h1 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.1; margin: 0; font-weight: 800; max-width: 40rem; }
+.summary p { color: var(--ink-soft); margin: 0.6rem 0 0; }
+
+.scan { margin: 4rem 0; max-width: 32rem; }
+.scan h2 { font-size: 1.8rem; margin: 0 0 1rem; }
+.progress { height: 14px; background: var(--paper); border: 1.5px solid var(--ink); border-radius: 8px; overflow: hidden; }
+.progress i { display: block; height: 100%; background: var(--postmark); transition: width 0.4s ease; }
+.scan p { color: var(--ink-soft); }
+
+.controls { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.tabs { display: flex; gap: 0.25rem; margin-right: auto; }
+.tabs button { border: 0; background: none; padding: 0.5rem 0.8rem; border-radius: 8px; font-weight: 600; color: var(--ink-soft); cursor: pointer; }
+.tabs button.on { background: var(--ink); color: #fff; }
+.controls input, .controls select {
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+.ledger { list-style: none; margin: 0; padding: 0; background: var(--paper); border: 1.5px solid var(--ink); border-radius: 14px; }
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr) auto;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1.5px solid var(--line);
+}
+.row:last-child { border-bottom: 0; }
+.vol { display: grid; gap: 0.35rem; min-width: 0; }
+.vol span { font-size: 0.85rem; color: var(--ink-soft); }
+.actions { display: flex; gap: 0.35rem; justify-content: flex-end; align-items: center; flex-wrap: wrap; }
+.note { grid-column: 1 / -1; margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+.note a { color: var(--postmark); font-weight: 600; }
+.empty { padding: 2.5rem 1.25rem; color: var(--ink-soft); }
+.chip { font-size: 0.85rem; font-weight: 600; padding: 0.3rem 0.65rem; border-radius: 999px; background: var(--fog); }
+.chip.ok { color: var(--ok); background: #e3f3ea; }
+
+.foot { margin-top: 2.5rem; }
+
+@media (max-width: 800px) {
+  .landing { grid-template-columns: 1fr; gap: 2rem; min-height: auto; padding-top: 1.5rem; }
+  .landing-sample { box-shadow: 5px 5px 0 var(--ink); }
+  .row { grid-template-columns: 1fr; }
+  .actions { justify-content: flex-start; }
+  .tabs { width: 100%; overflow-x: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
